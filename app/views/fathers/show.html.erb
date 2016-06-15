@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @father.name %>
+</p>
+<p>
+  <strong>Cpf:</strong>
+  <%= @father.cpf %>
+</p>
+  <strong>Email:</strong>
+  <%= @father.email %>
+<p>
+  <strong>Occupation:</strong>
+  <%= @father.occupation_description %>
+</p>
+<p>
+  <strong>Avatar:</strong>
+  <%= image_tag @father.avatar.url(:thumb) %>
+</p>  
+  <hr>
+
+
+  <ul>
+
+  <% @father.children.each do |child| %>
+    <li><%= "#{child.name} - #{sexo(child.sex)}" %></li>
+  <% end %>
+  
+  </ul>
+
+<%= link_to 'Edit', edit_father_path(@father) %> |
+<%= link_to 'Back', fathers_path %>
